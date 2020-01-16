@@ -5,11 +5,9 @@ export default class deleteTodo extends Component {
 
     constructor(props) {
         super(props);
-        this.onChangeTodoName = this.onChangeTodoName.bind(this);
-        this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
         this.state = {
+            //grabs the state
             todo_name: '',
             todo_description: '',
 
@@ -20,7 +18,7 @@ export default class deleteTodo extends Component {
             //get request to the backend "server" for the todolist
             .then(response => {
                 this.setState({
-                    //sets updated state properties w
+                    //sets the state with the original properties
                     todo_name: response.data.todo_name,
                     todo_description: response.data.todo_description,
                 })
@@ -29,18 +27,9 @@ export default class deleteTodo extends Component {
                 console.log(error)
             })
     }
-    onChangeTodoName(e) {
-        this.setState({
-            todo_name: e.target.value
-        });
-    }
-    onChangeTodoDescription(e) {
-        this.setState({
-            todo_description: e.target.value
-        });
-    }
 
     onSubmit(e) {
+        alert("Todo Deleted");
         e.preventDefault();
         const obj = {
             todo_name: this.state.todo_name,
@@ -49,8 +38,13 @@ export default class deleteTodo extends Component {
         axios.delete("http://localhost:5000/todos/delete/" + this.props.match.params.id, obj)
             //deletes our todo in the backend by matching the id and using the onsubmit object
             .then(res => console.log(res.data));
+            this.setState({
+                //here we reset the state after submitting
+                todo_name: '',
+                todo_description: '',
         //this.props.history.push('/');
     }
+)}
 
     render() {
         return (

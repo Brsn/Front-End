@@ -49,6 +49,7 @@ export default class TodosList extends Component {
     }
     onSubmit(e) {
         e.preventDefault();
+        alert("Todo Edited");
         const obj = {
             todo_name: this.state.todo_name,
             todo_description: this.state.todo_description,
@@ -58,7 +59,6 @@ export default class TodosList extends Component {
             //updates our todo in the backend by matching the id and using the onsubmit object
             .then(res => console.log(res.data));
         //this.props.history.push('/');
-
     }
 
     render() {
@@ -85,10 +85,7 @@ export default class TodosList extends Component {
                             <label className="form-check-label" htmlFor="completedCheckbox">
                                 Completed
                         </label>
-                            <br />
-
                         </div>
-
                         <br />
                         <div className="form-group">
                             <input type="submit" value="Update Todo" className="btn btn-primary" />
