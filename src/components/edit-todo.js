@@ -50,12 +50,12 @@ export default class TodosList extends Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Todo Edited");
-        const obj = {
-            todo_name: this.state.todo_name,
-            todo_description: this.state.todo_description,
-            todo_completed: this.state.todo_completed
-        };
-        axios.put("https://merntodolistbackend.herokuapp.com/todos/update/" + this.props.match.params.id, obj)
+        // const obj = {
+        //     todo_name: this.state.todo_name,
+        //     todo_description: this.state.todo_description,
+        //     todo_completed: this.state.todo_completed
+        // };
+        axios.put("https://merntodolistbackend.herokuapp.com/todos/update/" + this.props.match.params.id)
             //updates our todo in the backend by matching the id and using the onsubmit object
             .then(res => console.log(res.data));
         //this.props.history.push('/');
