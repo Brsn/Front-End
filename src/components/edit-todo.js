@@ -50,49 +50,53 @@ export default class TodosList extends Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Todo Edited");
-        // const obj = {
-        //     todo_name: this.state.todo_name,
-        //     todo_description: this.state.todo_description,
-        //     todo_completed: this.state.todo_completed
-        // };
-        axios.put("https://merntodolistbackend.herokuapp.com/todos/update/" + this.props.match.params.id)
+        const obj = {
+            todo_name: this.state.todo_name,
+            todo_description: this.state.todo_description,
+            todo_completed: this.state.todo_completed
+        };
+        axios.post("https://merntodolistbackend.herokuapp.com/todos/update/" + this.props.match.params.id, obj)
             //updates our todo in the backend by matching the id and using the onsubmit object
             .then(res => console.log(res.data));
-        //this.props.history.push('/');
-    }
+        this.setState({
+            //here we reset the state after submitting
+            todo_name: '',
+            todo_description: '',
+            //this.props.history.push('/');
+        }
 
     render() {
-        return (
+            return(
             <div>
-                <h3>Update Todo</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Name: </label>
-                        <input type="text" className="form-control" value={this.state.todo_name} onChange={this.onChangeTodoName}>
-                        </input>
-                    </div>
-                    <div>
-                        <div className="form-group">
-                            <label>Description: </label>
-                            <input type="text" className="form-control" value={this.state.todo_description} onChange={this.onChangeTodoDescription}>
-                            </input>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="completedCheckbox"
-                                name="completedCheckBox" onChange={this.onChangeTodoCompleted} checked={this.state.todo_completed}
-                                value={this.state.todo_completed}
-                            />
-                            <label className="form-check-label" htmlFor="completedCheckbox">
-                                Completed
-                        </label>
-                        </div>
-                        <br />
-                        <div className="form-group">
-                            <input type="submit" value="Update Todo" className="btn btn-primary" />
-                        </div>
-                    </div>
-                </form>
+        <h3>Update Todo</h3>
+        <form onSubmit={this.onSubmit}>
+            <div className="form-group">
+                <label>Name: </label>
+                <input type="text" className="form-control" value={this.state.todo_name} onChange={this.onChangeTodoName}>
+                </input>
             </div>
+            <div>
+                <div className="form-group">
+                    <label>Description: </label>
+                    <input type="text" className="form-control" value={this.state.todo_description} onChange={this.onChangeTodoDescription}>
+                    </input>
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" id="completedCheckbox"
+                        name="completedCheckBox" onChange={this.onChangeTodoCompleted} checked={this.state.todo_completed}
+                        value={this.state.todo_completed}
+                    />
+                    <label className="form-check-label" htmlFor="completedCheckbox">
+                        Completed
+                        </label>
+                </div>
+                <br />
+                <div className="form-group">
+                    <input type="submit" value="Update Todo" className="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+            </div >
         )
     }
 }
