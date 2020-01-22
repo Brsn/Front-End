@@ -7,7 +7,7 @@ export default class deleteTodo extends Component {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            //initializes state
+            //intializes the state
             todo_name: '',
             todo_description: '',
 
@@ -35,14 +35,14 @@ export default class deleteTodo extends Component {
             todo_name: this.state.todo_name,
             todo_description: this.state.todo_description,
         };
-        axios.delete("https://merntodolistbackend.herokuapp.com/todos/" + this.props.match.params.id, obj)
+        axios.delete("https://merntodolistbackend.herokuapp.com/todos/delete/" + this.props.match.params.id, obj)
             //deletes our todo in the backend by matching the id and using the onsubmit object
             .then(res => console.log(res.data));
         this.setState({
             //here we reset the state after submitting
             todo_name: '',
             todo_description: '',
-
+            //this.props.history.push('/');
         }
         )
     }

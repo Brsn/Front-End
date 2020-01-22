@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Todo = props => (
     <tr>
-        {/* function that renders the JSX and props with the toggle between completed or not. */}
+        {/* function that renders the JSX and props with the gog between completed or not. */}
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_name}</td>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
         <td>
