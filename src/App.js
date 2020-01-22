@@ -28,9 +28,9 @@ class App extends Component {
             </div>
           </nav>
           <Route path="/" exact component={TodosList} />
-          <Route path="/:id" component={EditTodo} />
-          <Route path="/" component={CreateTodo} />
-          <Route path="/:id" component={deleteTodo} />
+          <Route path="/edit/:id" component={EditTodo} />
+          <Route path="/create" component={CreateTodo} />
+          <Route path="/delete:id" component={deleteTodo} />
         </div>
       </Router >
 
