@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Todo = props => (
     <tr>
+        {/* function that renders the JSX and props with the toggle between completed or not. */}
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_name}</td>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
         <td>
@@ -41,29 +42,14 @@ export default class TodosList extends Component {
     }
 
     componentDidMount() {
-
+        // If the component mounts the page refreshes
         this.refreshPage();
 
 
 
     }
 
-
-    //when the component is updated through the edit-to, the page will render automatically
-
-    // componentDidUpdate() {
-    //     axios.get('http://localhost:5000/todos/')
-    //         .then(response => {
-    //             if (this._isMounted) {
-    //                 this.setState({ todos: response.data });
-    //             }
-    //             this.refreshPage();
-
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         })
-    // }
+    //maps through the databases and returns each todo
     todoList() {
         return this.state.todos.map(function (currentTodo, i) {
             return <Todo todo={currentTodo} key={i} />;
