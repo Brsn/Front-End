@@ -30,7 +30,7 @@ class App extends Component {
           <Route path="/" exact component={TodosList} />
           <Route path="/edit/:id" component={EditTodo} />
           <Route path="/create" component={CreateTodo} />
-          <Route path="/delete:id" component={deleteTodo} />
+          <Route path="/delete/:id" component={deleteTodo} />
         </div>
       </Router >
 
