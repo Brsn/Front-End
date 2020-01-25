@@ -28,11 +28,12 @@ class App extends Component {
             </div>
           </nav>
           <Route path="/todos" exact component={TodosList} />
+          <div>
+            {TodosList}
+          </div>
         </div>
       </Router >
-      <div>
-      {TodosList}
-      </div>
+      
     );
   }
 }
