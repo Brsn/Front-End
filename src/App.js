@@ -27,7 +27,7 @@ class App extends Component {
               </ul>
             </div>
           </nav>
-          <Route path="/" exact component={TodosList} />
+          <Route path="/todos" exact component={TodosList} />
           <Route path="/:id" component={EditTodo} />
           <Route path="/" component={CreateTodo} />
           <Route path="/:id" component={deleteTodo} />
