@@ -15,25 +15,21 @@ class App extends Component {
 
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to="/todos" className="navbar-brand"></Link>
+            <Link to="/" className="navbar-brand"></Link>
             <div className="collpase nav-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/todos" className="nav-link">Todos</Link>
-                </li>
-                <li className="navbar-item">
-                  <Link to="/" className="nav-link">Create Todo</Link>
+                  <Link to="/" className="nav-link">Todos</Link>
                 </li>
               </ul>
             </div>
           </nav>
-          <Route path="/todos" exact component={TodosList} />
-          <div>
-            {TodosList}
-          </div>
+          <Route path="/" exact component={TodosList} />
         </div>
       </Router >
-      
+      <div>
+      {TodosList}
+      </div>
     );
   }
 }
