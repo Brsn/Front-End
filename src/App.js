@@ -30,7 +30,9 @@ class App extends Component {
           <Route path="/todos" exact component={TodosList} />
         </div>
       </Router >
-
+      <div>
+      {TodosList}
+      </div>
     );
   }
 }
