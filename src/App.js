@@ -15,11 +15,11 @@ class App extends Component {
 
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to="/" className="navbar-brand"></Link>
+            <Link to="/todos" className="navbar-brand"></Link>
             <div className="collpase nav-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link">Todos</Link>
+                  <Link to="/todos" className="nav-link">Todos</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/" className="nav-link">Create Todo</Link>
