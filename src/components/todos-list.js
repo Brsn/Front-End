@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CreateTodo from "./create-todo";
-
 import axios from 'axios';
 
 const Todo = props => (
@@ -10,12 +8,12 @@ const Todo = props => (
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_name}</td>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
         <td>
-            <Link to={"/" + props.todo._id}>Edit</Link>
+            <Link to={"/edit/" + props.todo._id}>Edit</Link>
 
         </td>
         <td>
 
-            <Link to={"/" + props.todo._id}> Delete</Link>
+            <Link to={"/delete/" + props.todo._id}> Delete</Link>
         </td>
     </tr>
 )
@@ -75,9 +73,6 @@ export default class TodosList extends Component {
                         {this.todoList()}
                     </tbody>
                 </table>
-                <div>
-                    {CreateTodo}
-                </div>
             </div>
 
         )
