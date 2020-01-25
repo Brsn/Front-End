@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CreateTodo from "./create-todo";
+
 import axios from 'axios';
 
 const Todo = props => (
@@ -73,6 +75,9 @@ export default class TodosList extends Component {
                         {this.todoList()}
                     </tbody>
                 </table>
+                <div>
+                    {CreateTodo}
+                </div>
             </div>
 
         )
