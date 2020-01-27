@@ -8,12 +8,12 @@ const Todo = props => (
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_name}</td>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
         <td>
-            <Link to={"/edit/" + props.todo._id}>Edit</Link>
+            <Link to={"/components/" + props.todo._id}>Edit</Link>
 
         </td>
         <td>
 
-            <Link to={"/delete/" + props.todo._id}> Delete</Link>
+            <Link to={"/component/" + props.todo._id}> Delete</Link>
         </td>
     </tr>
 )
